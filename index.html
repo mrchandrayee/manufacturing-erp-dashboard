@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10141c">
+  <!-- Primary SEO -->
+  <title>Cadra — Manufacturing ERP Dashboard | mrchandrayee</title>
+  <meta name="description" content="A comprehensive manufacturing ERP dashboard with production metrics, order tracking, machine status and analytics. Pure HTML, CSS & JavaScript.">
+  <meta name="author" content="mrchandrayee">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mrchandrayee.github.io/manufacturing-erp-dashboard/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrchandrayee.github.io/manufacturing-erp-dashboard/">
+  <meta property="og:title" content="Cadra — Manufacturing ERP Dashboard | mrchandrayee">
+  <meta property="og:description" content="A comprehensive manufacturing ERP dashboard with production metrics, order tracking, machine status and analytics. Pure HTML, CSS & JavaScript.">
+  <meta property="og:image" content="https://mrchandrayee.github.io/manufacturing-erp-dashboard/preview.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mrchandrayee.github.io/manufacturing-erp-dashboard/">
+  <meta name="twitter:title" content="Cadra — Manufacturing ERP Dashboard | mrchandrayee">
+  <meta name="twitter:description" content="A comprehensive manufacturing ERP dashboard with production metrics, order tracking, machine status and analytics. Pure HTML, CSS & JavaScript.">
+  <meta name="twitter:image" content="https://mrchandrayee.github.io/manufacturing-erp-dashboard/preview.png">
+  <meta name="twitter:creator" content="@mrchandrayee">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cadra — Manufacturing ERP Dashboard",
+    "description": "A comprehensive manufacturing ERP dashboard with production metrics, order tracking, machine status and analytics. Pure HTML, CSS & JavaScript.",
+    "url": "https://mrchandrayee.github.io/manufacturing-erp-dashboard/",
+    "author": { "@type": "Person", "name": "mrchandrayee", "url": "https://github.com/mrchandrayee" },
+    "applicationCategory": "WebApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="rail">
+    <button class="rail-btn active" title="Search" data-action="search">⌕</button>
+    <button class="rail-btn" title="Add" data-action="add">＋</button>
+    <button class="rail-btn" title="Activity" data-action="activity">◷</button>
+    <button class="rail-btn" title="Help" data-action="help">◎</button>
+    <button class="rail-btn bottom" title="Settings" data-action="settings">⚙</button>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">C</div><div><b>Cadra</b><small>Larkspur Cycles</small></div></div>
+      <nav class="primary-nav" id="primaryNav">
+        <button data-page="Dashboard">Dashboard</button><button data-page="Sales">Sales <i>4</i></button>
+        <button data-page="Manufacturing">Manufacturing <i>1</i></button><button class="selected" data-page="Stock">Stock <i>6</i></button>
+        <button data-page="Accounting">Accounting <i>1</i></button><button data-page="HR">HR <i>3</i></button><button data-page="Reporting">Reporting</button>
+      </nav>
+      <div class="top-actions"><button class="icon-btn" id="notify" aria-label="Notifications">♧<em></em></button><button class="avatar">NH</button></div>
+    </header>
+
+    <section class="page-head">
+      <div class="crumbs">Larkspur <span>›</span> Inventory <span>›</span> <b>Warehouses</b></div>
+      <div class="head-row"><div><h1 id="pageTitle">Warehouses</h1><p id="pageSubtitle">Track stock across your locations</p></div>
+        <div class="status"><span class="live-dot"></span><b>3:37 PM</b><small>5 on the floor<br>4 on track · 1 behind</small><span class="status-line"></span></div>
+      </div>
+      <div class="module-row"><div class="modules"><button class="module active" data-module="Inventory">◉ <span>Inventory</span><i>6</i></button><button class="module" data-module="Purchasing">🛒 <span>Purchasing</span></button><button class="module" data-module="Logistics">⌁ <span>Logistics</span></button></div>
+        <button class="black-btn" id="transferBtn">⇄ &nbsp;Transfer stock</button></div>
+    </section>
+
+    <section class="tabs-row"><div class="tabs" id="stockTabs"><button data-tab="Stock">Stock</button><button class="active" data-tab="Warehouses">Warehouses</button><button data-tab="Movements">Movements</button></div><div class="filter-tabs" id="filterTabs"><button class="active" data-filter="All stock">All stock</button><button data-filter="Finished goods">Finished goods</button><button data-filter="Parts & materials">Parts &amp; materials</button></div></section>
+    <div class="note">ⓘ &nbsp;Bin counts come from the weekly cycle count</div>
+
+    <section class="warehouse-grid" id="warehouseGrid">
+      <article class="warehouse-card blue" data-type="All stock">
+        <div class="card-head"><div class="location"><span class="loc-icon">SEW</span><div><b>Southeast Works</b><small>Portland, OR · Works &amp; main store</small></div></div><span class="more">•••</span></div>
+        <div class="capacity"><b>78%</b><span>of 240 bins used</span><div class="legend"><i></i> Used &nbsp; <i class="empty"></i> Free &nbsp; <i class="inbound"></i> Inbound</div></div>
+        <div class="bin-map" data-used="78" data-total="100"></div>
+        <div class="metrics"><div><small>Stock value</small><b>$105,574</b></div><div><small>Units</small><b>760</b></div><div><small>SKUs</small><b>28</b></div></div>
+        <h4>MOST VALUE HERE</h4><div class="value-row"><span class="product-dot">◈</span><span>Ridgeline Gravel<small>3 units</small></span><b>$8,540</b></div>
+      </article>
+      <article class="warehouse-card coral" data-type="Finished goods">
+        <div class="card-head"><div class="location"><span class="loc-icon">DIV</span><div><b>Division St showroom</b><small>Portland, OR · Showroom floor &amp; back room</small></div></div><span class="more">•••</span></div>
+        <div class="capacity"><b>68%</b><span>of 60 bins used</span><div class="legend"><i></i> Used &nbsp; <i class="empty"></i> Free</div></div>
+        <div class="bin-map" data-used="68" data-total="60"></div>
+        <div class="metrics"><div><small>Stock value</small><b>$25,673</b></div><div><small>Units</small><b>129</b></div><div><small>SKUs</small><b>16</b></div></div>
+        <h4>MOST VALUE HERE</h4><div class="value-row"><span class="product-dot peach">◉</span><span>Ridgeline Gravel<small>3 units</small></span><b>$5,940</b></div><div class="value-row"><span class="product-dot">◈</span><span>Tempo Road<small>2 units</small></span><b>$4,820</b></div>
+      </article>
+      <article class="warehouse-card green" data-type="Parts & materials">
+        <div class="card-head"><div class="location"><span class="loc-icon">PHL</span><div><b>East Coast depot</b><small>Philadelphia, PA · Fulfilment depot</small></div></div><span class="more">•••</span></div>
+        <div class="capacity"><b>48%</b><span>of 120 bins used</span><div class="legend"><i></i> Used &nbsp; <i class="empty"></i> Free</div></div>
+        <div class="bin-map" data-used="48" data-total="80"></div>
+        <div class="metrics"><div><small>Stock value</small><b>$22,813</b></div><div><small>Units</small><b>86</b></div><div><small>SKUs</small><b>13</b></div></div>
+        <h4>MOST VALUE HERE</h4><div class="value-row"><span class="product-dot">◈</span><span>Ridgeline Gravel<small>4 units</small></span><b>$7,920</b></div><div class="value-row"><span class="product-dot mint">◉</span><span>Commuter Seven<small>6 units</small></span><b>$5,520</b></div>
+      </article>
+    </section>
+    <section class="lower-panel"><div><h3>Warehouse activity</h3><p>Recent stock movements across your locations</p></div><button class="outline-btn" id="viewMovements">View movements →</button><div class="activity-row"><span class="activity-icon">↗</span><span><b>Stock received</b><small>Southeast Works · 24 units · Today, 2:48 PM</small></span><b class="positive">+24</b></div><div class="activity-row"><span class="activity-icon">⇄</span><span><b>Transfer dispatched</b><small>Division St showroom → East Coast depot · Today, 1:16 PM</small></span><b>−8</b></div></section>
+    <footer>Cadra ERP <span>·</span> Inventory &amp; Operations <span class="footer-right">All systems operational</span></footer>
+  </main>
+</div>
+<div class="modal-backdrop" id="modalBackdrop"><div class="modal"><button class="close" id="closeModal">×</button><span class="eyebrow">INVENTORY OPERATIONS</span><h2>Transfer stock</h2><p>Move units between your warehouse locations.</p><label>From warehouse<select id="fromWarehouse"><option>Southeast Works</option><option>Division St showroom</option><option>East Coast depot</option></select></label><label>To warehouse<select id="toWarehouse"><option>East Coast depot</option><option>Division St showroom</option><option>Southeast Works</option></select></label><label>Product<input value="Ridgeline Gravel" id="productName"></label><label>Quantity<input type="number" min="1" value="8" id="quantity"></label><button class="black-btn full" id="confirmTransfer">Create transfer →</button><p class="form-message" id="formMessage"></p></div></div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body></html>
